@@ -24,7 +24,7 @@ print(p.cpu_affinity())
 process_list = []
 import psutil
 search = input('Process Search Term? : ')
-for proc in psutil.process_iter(['name', 'pid', 'cwd', 'cpu_percent']):
+for proc in psutil.process_iter(['name', 'pid', 'cwd']):
     if search.lower() in proc.info['name'].lower():
         process_list.append(proc.info)
 for d in range(len(process_list)):
@@ -76,3 +76,6 @@ print(f"New core affinity set to :{(psutil.Process(chosenProc).cpu_affinity())}"
 #print(max(a))
 #import psutil
 #print(psutil.cpu_count()-1)
+#import psutil
+#for proc in psutil.process_iter(["cpu_affinity"]):
+#    print(proc.info)
